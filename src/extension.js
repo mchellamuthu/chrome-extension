@@ -22,7 +22,8 @@ function startExtension(gmail) {
     gmail.observe.on("view_email", (domEmail) => {
       console.log("Looking at email:", domEmail);
       const emailData = gmail.new.get.email_data(domEmail);
-      console.log("Email data:", emailData.subject);
+      getTitle();
+      console.log("Email data:", emailData);
     });
 
     gmail.observe.on("compose", (compose) => {
@@ -32,5 +33,5 @@ function startExtension(gmail) {
 }
 
 function getTitle() {
-  console.log("Title: " + document.title);
+  console.log("Title: " + window.document.title);
 }
